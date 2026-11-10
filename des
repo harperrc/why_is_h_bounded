@@ -1,0 +1,5 @@
+set xlabel "h"
+set ylabel "Volume (inch^3)"
+p 'out' u 2:3 @ml1 tit '',\
+  'max' u 2:3 @pt72 tit '',\
+     '' u 2:(1.04*$3):2 w labels tit ''

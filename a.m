@@ -1,0 +1,11 @@
+clear; 
+clc;
+w=70;
+A = @ (x) (w-2*x).^2*sin(pi/4)*cos(pi/4)/4+x.*(w-2*x)*cos(pi/4);
+Ainv = @ (x) -(w-2*x).^2*sin(pi/4)*cos(pi/4)/4-x.*(w-2*x)*cos(pi/4);
+%fplot(A,[0 30]);
+%xlabel('h (in.)');
+%ylabel('A (in.^3)');
+[hAmax, Amax]=fminbnd(Ainv,5,10);
+Volume=-Amax*120;
+fprintf('%15.5f %15.5f\n',hAmax,abs(Amax));
